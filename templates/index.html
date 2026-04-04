@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Etiqueta de verificación de Google (obligatoria) -->
+    <!-- Verificación de Google -->
     <meta name="google-site-verification" content="forN4VXVEL0Ql82cTffrs1ceZTaXIXUWTlONW4JyZ_Y" />
     
+    <!-- Meta tags básicas y SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MultiConvert</title>
+    <title>Convertir PNG a JPG gratis online | MultiConvert</title>
+    <meta name="description" content="Convierte imágenes PNG a JPG, JPG a PNG y PDF gratis. Sin registro. Rápido, fácil y seguro. MultiConvert online.">
+    <meta name="keywords" content="convertir png a jpg, convertir jpg a png, imagen a pdf, convertir imagen, png a jpg gratis, jpg a png online">
+
     <style>
         * {
             transition: all 0.2s ease-in-out;
@@ -14,36 +18,45 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: #CAF0F8;
+            background: linear-gradient(135deg, #CAF0F8, #90E0EF);
             margin: 0;
             padding: 20px;
+            color: #333;
         }
         .container {
-            margin-top: 50px;
+            margin-top: 40px;
             background: white;
             padding: 40px 30px;
-            border-radius: 16px;
-            width: 480px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 520px;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.12);
         }
         h1 {
             color: #023E8A;
             margin-bottom: 8px;
+            font-size: 2.4em;
+        }
+        h2 {
+            color: #023E8A;
+            margin: 35px 0 15px 0;
+            font-size: 1.6em;
         }
         p {
             color: #555;
-            margin-bottom: 25px;
+            line-height: 1.6;
         }
         .drop-zone {
-            border: 2px dashed #0077B6;
-            padding: 40px 20px;
-            margin: 20px auto;
+            border: 3px dashed #0077B6;
+            padding: 50px 20px;
+            margin: 25px auto;
             cursor: pointer;
-            border-radius: 12px;
-            background: #CAF0F8;
-            max-width: 400px;
+            border-radius: 16px;
+            background: #F0FAFF;
+            max-width: 420px;
+            font-size: 1.1em;
         }
         .drop-zone:hover {
             background: #90E0EF;
@@ -56,12 +69,12 @@
         }
         input, select, button {
             margin: 12px auto;
-            padding: 12px;
+            padding: 14px;
             width: 85%;
-            max-width: 380px;
-            border-radius: 8px;
+            max-width: 400px;
+            border-radius: 10px;
             border: 1px solid #ccc;
-            font-size: 15px;
+            font-size: 16px;
             display: block;
         }
         select {
@@ -72,9 +85,10 @@
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 17px;
+            font-size: 18px;
             font-weight: bold;
-            padding: 14px;
+            padding: 16px;
+            margin-top: 10px;
         }
         button:hover {
             background: #023E8A;
@@ -83,58 +97,76 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 12px;
+            margin: 25px 0;
         }
         #preview img {
-            width: 80px;
-            height: 80px;
+            width: 85px;
+            height: 85px;
             object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        #preview img:hover {
-            transform: scale(1.15);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         #loading {
             display: none;
             font-weight: bold;
             color: #0077B6;
-            margin-top: 15px;
+            margin-top: 20px;
+            font-size: 1.1em;
         }
         .info {
-            font-size: 13px;
+            font-size: 14px;
             color: #666;
-            margin-top: 20px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>MultiConvert 🚀</h1>
-        <p>Convierte imágenes a JPG o PNG fácilmente</p>
+        <p style="font-size: 1.2em; margin-bottom: 30px;">Convierte imágenes fácilmente y gratis</p>
+
         <form id="form" action="/upload" method="post" enctype="multipart/form-data">
-           
+            
             <label><strong>Formato de salida:</strong></label>
             <select name="formato">
                 <option value="jpg">JPG (más ligero)</option>
                 <option value="png">PNG (sin pérdida)</option>
             </select>
+
             <label><strong>Modo de descarga:</strong></label>
             <select name="modo">
                 <option value="zip">Todo en un ZIP</option>
                 <option value="individual">Descargar individualmente</option>
             </select>
+
             <div class="drop-zone" id="drop-zone">
-                Arrastra tus imágenes aquí<br>o haz clic para seleccionar
+                Arrastra tus imágenes aquí<br>
+                <strong>o haz clic para seleccionar</strong>
                 <input type="file" name="imagenes" id="fileInput" multiple accept="image/*" hidden>
             </div>
+
             <div id="preview"></div>
+            
             <button type="submit">Convertir y Descargar</button>
-           
+            
             <p id="loading">Procesando imágenes... ⏳ Por favor espera</p>
         </form>
-        <p class="info">Puedes subir varias imágenes al mismo tiempo</p>
+
+        <p class="info">✅ Sin registro • ✅ Rápido • ✅ Totalmente gratis</p>
+    </div>
+
+    <!-- Contenido adicional para SEO -->
+    <div class="container" style="margin-top: 30px; max-width: 720px;">
+        <h2>Convertir imágenes PNG a JPG gratis</h2>
+        <p>MultiConvert es una herramienta online gratuita para convertir imágenes PNG a JPG, JPG a PNG y otros formatos de forma rápida y segura. 
+        No necesitas registrarte, no hay límites y tus archivos se procesan directamente en tu navegador.</p>
+        
+        <h2>¿Por qué usar MultiConvert?</h2>
+        <p>✓ Conversión instantánea<br>
+           ✓ Soporta múltiples imágenes al mismo tiempo<br>
+           ✓ Descarga individual o en un solo archivo ZIP<br>
+           ✓ Totalmente gratis y sin publicidad invasiva</p>
     </div>
 
     <script>
@@ -144,17 +176,13 @@
         const form = document.getElementById("form");
         const loading = document.getElementById("loading");
 
-        // Click en la zona para abrir selector de archivos
         dropZone.addEventListener("click", () => fileInput.click());
 
-        // Drag & Drop
         dropZone.addEventListener("dragover", (e) => {
             e.preventDefault();
             dropZone.classList.add("dragover");
         });
-        dropZone.addEventListener("dragleave", () => {
-            dropZone.classList.remove("dragover");
-        });
+        dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
         dropZone.addEventListener("drop", (e) => {
             e.preventDefault();
             dropZone.classList.remove("dragover");
@@ -162,7 +190,6 @@
             mostrarPreview();
         });
 
-        // Cuando se seleccionan archivos manualmente
         fileInput.addEventListener("change", mostrarPreview);
 
         function mostrarPreview() {
@@ -180,14 +207,12 @@
             }
         }
 
-        // Mostrar mensaje de carga al enviar
         form.addEventListener("submit", () => {
             if (fileInput.files.length === 0) {
                 alert("Por favor selecciona al menos una imagen");
                 return;
             }
             loading.style.display = "block";
-            // Deshabilitar botón para evitar doble envío
             form.querySelector("button").disabled = true;
         });
     </script>
