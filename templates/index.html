@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Etiqueta de verificación de Google (obligatoria) -->
     <meta name="google-site-verification" content="forN4VXVEL0Ql82cTffrs1ceZTaXIXUWTlONW4JyZ_Y" />
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MultiConvert</title>
@@ -111,33 +113,27 @@
     <div class="container">
         <h1>MultiConvert 🚀</h1>
         <p>Convierte imágenes a JPG o PNG fácilmente</p>
-
         <form id="form" action="/upload" method="post" enctype="multipart/form-data">
-            
+           
             <label><strong>Formato de salida:</strong></label>
             <select name="formato">
                 <option value="jpg">JPG (más ligero)</option>
                 <option value="png">PNG (sin pérdida)</option>
             </select>
-
             <label><strong>Modo de descarga:</strong></label>
             <select name="modo">
                 <option value="zip">Todo en un ZIP</option>
                 <option value="individual">Descargar individualmente</option>
             </select>
-
             <div class="drop-zone" id="drop-zone">
                 Arrastra tus imágenes aquí<br>o haz clic para seleccionar
                 <input type="file" name="imagenes" id="fileInput" multiple accept="image/*" hidden>
             </div>
-
             <div id="preview"></div>
-
             <button type="submit">Convertir y Descargar</button>
-            
+           
             <p id="loading">Procesando imágenes... ⏳ Por favor espera</p>
         </form>
-
         <p class="info">Puedes subir varias imágenes al mismo tiempo</p>
     </div>
 
@@ -156,11 +152,9 @@
             e.preventDefault();
             dropZone.classList.add("dragover");
         });
-
         dropZone.addEventListener("dragleave", () => {
             dropZone.classList.remove("dragover");
         });
-
         dropZone.addEventListener("drop", (e) => {
             e.preventDefault();
             dropZone.classList.remove("dragover");
@@ -197,6 +191,5 @@
             form.querySelector("button").disabled = true;
         });
     </script>
-    google-site-verification: google45476633713523c0.html
 </body>
 </html>
